@@ -48,8 +48,8 @@ class Words {
 //: ## Q3: More Functions and Object Initialization
     func isAnagram() -> Bool {
         var countLetters = [Character : Int]() //Line X
-        var lenA = self.wordA.characters.count
-        var lenB = self.wordB.characters.count
+        let lenA = self.wordA.characters.count
+        let lenB = self.wordB.characters.count
         
         if lenA != lenB {
             return false
@@ -76,7 +76,7 @@ class Words {
             }
         }
         
-        for (letter, count) in countLetters {
+        for (_, count) in countLetters {
             if count != 0 {
                 return false
             }
@@ -90,7 +90,7 @@ class Words {
 //: ### change) the code at the very bottom. Debug the function.
 
 
-//: [I had to delete the "class" keyword before "func" because this was being used as an instance method. I changed Line X by changing the colon to an assignment statement and made the statement and instantiation of a Character: Int dictionary by adding a function call. I also added a return true at the end instead of a return nil because the code before did not return true when the word was indeed an anagram. ]
+//: [I had to delete the "class" keyword before "func" because this was being used as an instance method. I changed Line X by changing the colon to an assignment statement and made the statement and instantiation of a Character: Int dictionary by adding a function call. I also added a return true at the end instead of a return nil because the code before did not return true when the word was indeed an anagram. I also changed the lenA and lenB variables to let because they never change. I also changed the letter variable to an underscore because it is never used in the loop.]
     
     
 }
