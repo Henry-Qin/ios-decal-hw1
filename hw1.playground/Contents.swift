@@ -22,11 +22,11 @@ class Words {
 //: ### variables the same type? If not, why?
 
 
-//: [EXPLAIN YOUR ANSWER HERE]
+//: No they are not the same type because the values being passed into the init function are of type String Optional while those that are set to the instance variables are implicitly unwrapped, which means that they are of just type String.
 
 
 //: ## Q2: Variable Types and Function Types
-    func arePalindromes(_ words: [String]) -> Bool {
+    class func arePalindromes(_ words: [String]) -> Bool {
         let reversedWords = words.map() {String($0.characters.reversed())}
         let numElements = words.count
         
@@ -35,18 +35,19 @@ class Words {
                 return false
             }
         }
+        return true
     }
 //: ### Why does the compiler dislike the **for loop**? Fix it.
 //: ### What else is wrong with this function? You may have to refer to (but **not**
 //: ### change) the code at the very bottom. Debug the function.
 
 
-//: [EXPLAIN YOUR ANSWER HERE]
+//: [This function is being called as a class function when it was not declared as such so I added "class" before the func keyword. I also added that the function could return true if, after iterating through all the elements, that there are no discrepancies between the words and the reversedWords.]
 
 
 //: ## Q3: More Functions and Object Initialization
-    class func isAnagram() -> Bool {
-        var countLetters : [Character : Int] //Line X
+    func isAnagram() -> Bool {
+        var countLetters = [Character : Int]() //Line X
         var lenA = self.wordA.characters.count
         var lenB = self.wordB.characters.count
         
@@ -81,7 +82,7 @@ class Words {
             }
         }
         
-        return nil
+        return true
     }
 //: ### What is the problem with declaring **countLetters** as we do in **Line X**,
 //: ### and then using it in **Line Y**? Fix it (by only changing **Line X**).
@@ -89,7 +90,7 @@ class Words {
 //: ### change) the code at the very bottom. Debug the function.
 
 
-//: [EXPLAIN YOUR ANSWER HERE]
+//: [I had to delete the "class" keyword before "func" because this was being used as an instance method. I changed Line X by changing the colon to an assignment statement and made the statement and instantiation of a Character: Int dictionary by adding a function call. I also added a return true at the end instead of a return nil because the code before did not return true when the word was indeed an anagram. ]
     
     
 }
